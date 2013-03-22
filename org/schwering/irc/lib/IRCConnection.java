@@ -157,6 +157,11 @@ public class IRCConnection extends Thread {
      */
     private String username;
 
+    /**
+     * The number of alternate nick attempts.
+     */
+    private int altNickAttempts = 0;
+
     // ------------------------------
 
     /**
@@ -327,27 +332,20 @@ public class IRCConnection extends Thread {
         in = new BufferedReader(new InputStreamReader(s.getInputStream(), encoding));
         out = new PrintWriter(new OutputStreamWriter(s.getOutputStream(), encoding));
         start();
-        register();
+        sendPassAndNick();
     }
 
     // ------------------------------
 
     /**
-     * Registers the connection with the IRC server. <br />
-     * In fact, it sends a password (if set, else nothing), the nickname and the user, the realname and the host which
-     * we're connecting to.<br />
-     * The action synchronizes <code>code> so that no important messages 
-     * (like the first PING) come in before this registration is finished.<br />
-     * The <code>USER</code> command's format is:<br />
-     * <code>
-     * &lt;username&gt; &lt;localhost&gt; &lt;irchost&gt; &lt;realname&gt;
-     * </code>
+     * Sends the password (if set) and nickname to the server. Registration (<code>USER</code> command) occurs in event
+     * handling elsewhere. The action synchronizes so that no important messages (like the first PING) come in before
+     * this registration is finished.<br />
      */
-    private void register() {
+    private void sendPassAndNick() {
         if (pass != null)
             send("PASS " + pass);
         send("NICK " + nick);
-        send("USER " + username + " " + socket.getLocalAddress() + " " + host + " :" + realname);
     }
 
     // ------------------------------
@@ -456,6 +454,10 @@ public class IRCConnection extends Thread {
 
             if (level == 1) { // not registered
                 level = 2; // first PING received -> connection
+
+                // Register the connection
+                register();
+
                 for (int i = listeners.length - 1; i >= 0; i--)
                     listeners[i].onRegistered();
             }
@@ -531,9 +533,15 @@ public class IRCConnection extends Thread {
 
         }
         else if (reply >= 400 && reply < 600) { // ERROR
-            String trailing = p.getTrailing();
-            for (int i = listeners.length - 1; i >= 0; i--)
-                listeners[i].onError(reply, trailing);
+            if (reply == 433) {
+                // Nick was already in use
+                attemptAlternateNick();
+            }
+            else {
+                String trailing = p.getTrailing();
+                for (int i = listeners.length - 1; i >= 0; i--)
+                    listeners[i].onError(reply, trailing);
+            }
         }
         else if (command.equalsIgnoreCase("KICK")) { // KICK
 
@@ -581,7 +589,24 @@ public class IRCConnection extends Thread {
         }
     }
 
+    /**
+     * Sends the <code>USER</code> command. The command's format is:<br />
+     * <code>
+     * &lt;username&gt; &lt;localhost&gt; &lt;irchost&gt; &lt;realname&gt;
+     * </code>
+     */
+    private void register() {
+        send("USER " + username + " " + socket.getLocalAddress() + " " + host + " :" + realname);
+    }
+
     // ------------------------------
+
+    /**
+     * Increments the alternative nick counter and sends a new NICK command.
+     */
+    private void attemptAlternateNick() {
+        doNick(nick + ++altNickAttempts);
+    }
 
     /**
      * Close down the connection brutally. <br />
