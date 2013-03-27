@@ -11,13 +11,13 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib;
+package com.rrs_apps.java.jirclib;
 
 /**
  * Parses channel-modes.
  * <p>
  * An instance of this class is an argument of the <code>{@link 
- * org.schwering.irc.lib.IRCEventListener#onMode(String chan, IRCUser user,
+ * com.rrs_apps.java.jirclib.IRCEventListener#onMode(String chan, IRCUser user,
  * IRCModeParser modeParser)}</code>. It's intended to help the programmer to work with the modes.
  * <p>
  * Channelmodes are:

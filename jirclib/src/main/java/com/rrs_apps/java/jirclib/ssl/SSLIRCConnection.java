@@ -11,7 +11,7 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib.ssl;
+package com.rrs_apps.java.jirclib.ssl;
 
 import java.io.IOException;
 import java.net.SocketException;
@@ -20,7 +20,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-import org.schwering.irc.lib.IRCConnection;
+import com.rrs_apps.java.jirclib.IRCConnection;
 
 /**
  * The SSL extension of the <code>IRCConnection</code> class.
@@ -30,14 +30,14 @@ import org.schwering.irc.lib.IRCConnection;
  * means a high load for the server.
  * <p>
  * The following sample code tries to establish an IRC connection to an IRC server which must support SSL. Differences
- * to the code which demonstrates the use of of the {@link org.schwering.irc.lib.IRCConnection} class are printed in
+ * to the code which demonstrates the use of of the {@link com.rrs_apps.java.jirclib.IRCConnection} class are printed in
  * bold font:
  * <p>
  * <hr />
  * 
  * <pre>
  * /&#42; 
- *  &#42; The following code of a class which imports org.schwering.irc.lib.*
+ *  &#42; The following code of a class which imports com.rrs_apps.java.jirclib.*
  *  &#42; prepares an SSL IRC connection and then tries to establish the 
  *  &#42; connection. The server is "irc.somenetwork.com", the ports are 
  *  &#42; the default SSL port (443) and the port used on most SSL IRC servers
@@ -86,13 +86,13 @@ import org.schwering.irc.lib.IRCConnection;
  * this example.
  * <p>
  * <code>SSLTrustManager</code>s can be added and removed until the <code>connect</code> method is invoked. If no
- * <code>SSLTrustManager</code>s are set until then, an {@link org.schwering.irc.lib.ssl.SSLDefaultTrustManager} is set
+ * <code>SSLTrustManager</code>s are set until then, an {@link com.rrs_apps.java.jirclib.ssl.SSLDefaultTrustManager} is set
  * automatically. It accepts all X509 certificates.
  * 
  * @author Christoph Schwering &lt;schwering@gmail.com&gt;
  * @since 1.10
  * @version 2.00
- * @see org.schwering.irc.lib.IRCConnection
+ * @see com.rrs_apps.java.jirclib.IRCConnection
  * @see SSLTrustManager
  */
 public class SSLIRCConnection extends IRCConnection {

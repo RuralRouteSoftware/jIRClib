@@ -11,7 +11,7 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib;
+package com.rrs_apps.java.jirclib;
 
 import java.util.EventListener;
 
@@ -83,7 +83,7 @@ public interface IRCEventListener extends EventListener, IRCConstants {
     /**
      * Fired when a numeric error is received. The server often sends numeric errors (wrong nickname etc.). The
      * <code>msg</code>'s format is different for every reply. All replies' formats are described in the
-     * {@link org.schwering.irc.lib.IRCUtil}.
+     * {@link com.rrs_apps.java.jirclib.IRCUtil}.
      * 
      * @param num
      *            The identifier (usually a 3-digit number).
@@ -247,7 +247,7 @@ public interface IRCEventListener extends EventListener, IRCConstants {
     /**
      * Fired when a numeric reply is received. For example, <code>WHOIS</code> queries are answered by the server with
      * numeric replies. The <code>msg</code>'s format is different for every reply. All replies' formats are described
-     * in the {@link org.schwering.irc.lib.IRCUtil}. The first word in the <code>value</code> is always your own
+     * in the {@link com.rrs_apps.java.jirclib.IRCUtil}. The first word in the <code>value</code> is always your own
      * nickname!
      * 
      * @param num

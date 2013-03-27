@@ -11,7 +11,7 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib;
+package com.rrs_apps.java.jirclib;
 
 /**
  * Parses a line sent from the IRC server.

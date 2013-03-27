@@ -1,4 +1,4 @@
-package org.schwering.irc.lib;
+package com.rrs_apps.java.jirclib;
 
 /**
  * Contains constants: reply codes, error codes and mIRC color codes.

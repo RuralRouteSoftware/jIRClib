@@ -11,7 +11,7 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib.ssl;
+package com.rrs_apps.java.jirclib.ssl;
 
 import java.security.cert.X509Certificate;
 

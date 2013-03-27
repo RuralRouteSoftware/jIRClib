@@ -11,7 +11,7 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib;
+package com.rrs_apps.java.jirclib;
 
 /**
  * Holds variables for the nick, username and host of a user.

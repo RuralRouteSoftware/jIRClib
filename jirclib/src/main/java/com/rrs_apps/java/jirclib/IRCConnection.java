@@ -11,7 +11,7 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib;
+package com.rrs_apps.java.jirclib;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +30,7 @@ import java.net.SocketException;
  * 
  * <pre>
  * /* 
- *  * The following code of a class which imports org.schwering.irc.lib.*
+ *  * The following code of a class which imports com.rrs_apps.java.jirclib.*
  *  * prepares an IRC connection and then tries to establish the connection.
  *  * The server is &quot;irc.somenetwork.com&quot;, the default portrange (6667 and 
  *  * 6669) is set, no password is used (null). The nickname is &quot;Foo&quot; and 
@@ -662,10 +662,10 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Adds a new {@link org.schwering.irc.lib.IRCEventListener} which listens for actions coming from the IRC server.
+     * Adds a new {@link com.rrs_apps.java.jirclib.IRCEventListener} which listens for actions coming from the IRC server.
      * 
      * @param l
-     *            An instance of the {@link org.schwering.irc.lib.IRCEventListener} interface.
+     *            An instance of the {@link com.rrs_apps.java.jirclib.IRCEventListener} interface.
      * @throws IllegalArgumentException
      *             If <code>listener</code> is <code>null</code>.
      */
@@ -682,10 +682,10 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Removes the first occurence of the given {@link org.schwering.irc.lib.IRCEventListener} from the listener-vector.
+     * Removes the first occurence of the given {@link com.rrs_apps.java.jirclib.IRCEventListener} from the listener-vector.
      * 
      * @param l
-     *            An instance of the {@link org.schwering.irc.lib.IRCEventListener} interface.
+     *            An instance of the {@link com.rrs_apps.java.jirclib.IRCEventListener} interface.
      * @return <code>true</code> if the listener was successfully removed; <code>false</code> if it was not found.
      */
     public synchronized boolean removeIRCEventListener(IRCEventListener l) {

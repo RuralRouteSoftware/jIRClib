@@ -11,7 +11,7 @@
  * ANY WARRANTY.
  */
 
-package org.schwering.irc.lib.ssl;
+package com.rrs_apps.java.jirclib.ssl;
 
 /**
  * Indicates that SSL is not supported. However, a <code>NoClassDefFoundError</code> is probably thrown before a
