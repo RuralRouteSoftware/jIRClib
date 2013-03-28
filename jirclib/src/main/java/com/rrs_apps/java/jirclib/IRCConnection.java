@@ -282,9 +282,6 @@ public class IRCConnection extends Thread {
                 exception = null;
             }
             catch (IOException exc) {
-                if (s != null)
-                    s.close();
-                s = null;
                 exception = exc;
             }
         }
