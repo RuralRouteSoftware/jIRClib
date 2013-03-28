@@ -172,7 +172,9 @@ public class IRCConnection extends Thread {
      *            The password of the IRC server. If your server isn't secured by a password (that's normal), use
      *            <code>null</code> or <code>""</code>.
      * @param nick
-     *            The nickname for the connection. Is used to register the connection.
+     *            The nickname for the connection. Is used to register the connection. If the nickname is in use,
+     *            alternative nicknames will automatically be attempted by appending an incrementing integer (beginning
+     *            with '1') until a successful registration is possible.
      * @param username
      *            The username. Is used to register the connection.
      * @param realname
@@ -216,7 +218,9 @@ public class IRCConnection extends Thread {
      *            The password of the IRC server. If your server isn't secured by a password (that's normal), use
      *            <code>null</code> or <code>""</code>.
      * @param nick
-     *            The nickname for the connection. Is used to register the connection.
+     *            The nickname for the connection. Is used to register the connection. If the nickname is in use,
+     *            alternative nicknames will automatically be attempted by appending an incrementing integer (beginning
+     *            with '1') until a successful registration is possible.
      * @param username
      *            The username. Is used to register the connection.
      * @param realname
