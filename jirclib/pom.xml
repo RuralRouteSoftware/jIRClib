@@ -4,6 +4,35 @@
 	<groupId>com.rrs-apps.java.jirclib</groupId>
 	<artifactId>jirclib</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>jIRClib</name>
+	<description>An IRC client library for Java</description>
+	<url>http://github.com/RuralRouteSoftware/jIRClib</url>
+
+	<licenses>
+		<license>
+			<name>MIT license</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/RuralRouteSoftware/jIRClib.git</connection>
+		<developerConnection>scm:git:git@github.com:RuralRouteSoftware/jIRClib.git</developerConnection>
+		<url>http://github.com/RuralRouteSoftware/jIRClib</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>cwc</id>
+			<name>Cameron Currie</name>
+			<url>http://github.com/cwc</url>
+			<organization>Rural Route Software</organization>
+			<organizationUrl>http://github.com/RuralRouteSoftware</organizationUrl>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
 
 	<build>
 		<pluginManagement>
