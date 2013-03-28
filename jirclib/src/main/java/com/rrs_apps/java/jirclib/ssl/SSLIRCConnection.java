@@ -93,7 +93,7 @@ public class SSLIRCConnection extends IRCConnection {
     /**
      * The list of <code>SSLTrustManager</code>s.
      */
-    private Vector trustManagers = new Vector(1);
+    private Vector<SSLTrustManager> trustManagers = new Vector<SSLTrustManager>(1);
 
     // ------------------------------
 

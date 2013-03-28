@@ -154,7 +154,7 @@ public class IRCUtil implements IRCConstants {
      * @see #split(String, int)
      */
     public static String[] split(String str, int delim, String trailing) {
-        Vector items = new Vector(15);
+        Vector<String> items = new Vector<String>(15);
         int last = 0;
         int index = 0;
         int len = str.length();
