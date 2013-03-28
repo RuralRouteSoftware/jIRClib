@@ -133,18 +133,19 @@ class SSLSocketFactoryFactory {
          * SSLSocketFactory socketFactory = context.getSocketFactory();
          */
 
-        Class stringClass = String.class;
-        Class contextClass = Class.forName("javax.net.ssl.SSLContext");
-        Class keyManagerClass = Class.forName("javax.net.ssl.KeyManager");
-        Class keyManagerArrayClass = java.lang.reflect.Array.newInstance(keyManagerClass, 0).getClass();
-        Class trustManagerClass = Class.forName("javax.net.ssl.TrustManager");
-        Class trustManagerArrayClass = java.lang.reflect.Array.newInstance(trustManagerClass, 0).getClass();
-        Class secureRandomClass = java.security.SecureRandom.class;
+        Class<?> stringClass = String.class;
+        Class<?> contextClass = Class.forName("javax.net.ssl.SSLContext");
+        Class<?> keyManagerClass = Class.forName("javax.net.ssl.KeyManager");
+        Class<?> keyManagerArrayClass = java.lang.reflect.Array.newInstance(keyManagerClass, 0).getClass();
+        Class<?> trustManagerClass = Class.forName("javax.net.ssl.TrustManager");
+        Class<?> trustManagerArrayClass = java.lang.reflect.Array.newInstance(trustManagerClass, 0)
+                .getClass();
+        Class<?> secureRandomClass = java.security.SecureRandom.class;
 
         Method getInstanceMethod = contextClass.getMethod("getInstance", new Class[] { stringClass });
         Method initMethod = contextClass.getMethod("init", new Class[] { keyManagerArrayClass,
                 trustManagerArrayClass, secureRandomClass });
-        Method getSocketFactoryMethod = contextClass.getMethod("getSocketFactory", null);
+        Method getSocketFactoryMethod = contextClass.getMethod("getSocketFactory", (Class[]) null);
 
         Class.forName("javax.net.ssl.X509TrustManager"); // check for availability
         TrustManagerJava14Wrapper[] tmWrappers = TrustManagerJava14Wrapper.wrap(tm);
@@ -152,7 +153,7 @@ class SSLSocketFactoryFactory {
         String protocol = SSLIRCConnection.protocol;
         Object context = getInstanceMethod.invoke(null, new Object[] { protocol });
         initMethod.invoke(context, new Object[] { null, tmWrappers, null });
-        Object socketFactory = getSocketFactoryMethod.invoke(context, null);
+        Object socketFactory = getSocketFactoryMethod.invoke(context, (Object[]) null);
 
         return (SSLSocketFactory) socketFactory;
     }
@@ -188,27 +189,28 @@ class SSLSocketFactoryFactory {
          * SSLSocketFactory socketFactory = context.getSocketFactory();
          */
 
-        Class securityClass = Class.forName("java.security.Security");
-        Class providerClass = Class.forName("java.security.Provider");
-        Class sslProviderClass = Class.forName("com.sun.net.ssl.internal.ssl.Provider");
+        Class<?> securityClass = Class.forName("java.security.Security");
+        Class<?> providerClass = Class.forName("java.security.Provider");
+        Class<?> sslProviderClass = Class.forName("com.sun.net.ssl.internal.ssl.Provider");
 
         Method addProvider = securityClass.getMethod("addProvider", new Class[] { providerClass });
 
         Object provider = sslProviderClass.newInstance();
         addProvider.invoke(null, new Object[] { provider });
 
-        Class stringClass = String.class;
-        Class contextClass = Class.forName("com.sun.net.ssl.SSLContext");
-        Class keyManagerClass = Class.forName("com.sun.net.ssl.KeyManager");
-        Class keyManagerArrayClass = java.lang.reflect.Array.newInstance(keyManagerClass, 0).getClass();
-        Class trustManagerClass = Class.forName("com.sun.net.ssl.TrustManager");
-        Class trustManagerArrayClass = java.lang.reflect.Array.newInstance(trustManagerClass, 0).getClass();
-        Class secureRandomClass = java.security.SecureRandom.class;
+        Class<?> stringClass = String.class;
+        Class<?> contextClass = Class.forName("com.sun.net.ssl.SSLContext");
+        Class<?> keyManagerClass = Class.forName("com.sun.net.ssl.KeyManager");
+        Class<?> keyManagerArrayClass = java.lang.reflect.Array.newInstance(keyManagerClass, 0).getClass();
+        Class<?> trustManagerClass = Class.forName("com.sun.net.ssl.TrustManager");
+        Class<?> trustManagerArrayClass = java.lang.reflect.Array.newInstance(trustManagerClass, 0)
+                .getClass();
+        Class<?> secureRandomClass = java.security.SecureRandom.class;
 
         Method getInstanceMethod = contextClass.getMethod("getInstance", new Class[] { stringClass });
         Method initMethod = contextClass.getMethod("init", new Class[] { keyManagerArrayClass,
                 trustManagerArrayClass, secureRandomClass });
-        Method getSocketFactoryMethod = contextClass.getMethod("getSocketFactory", null);
+        Method getSocketFactoryMethod = contextClass.getMethod("getSocketFactory", (Class[]) null);
 
         Class.forName("com.sun.net.ssl.X509TrustManager"); // check for availability
         TrustManagerJsseWrapper[] tmWrappers = TrustManagerJsseWrapper.wrap(tm);
@@ -216,7 +218,7 @@ class SSLSocketFactoryFactory {
         String protocol = SSLIRCConnection.protocol;
         Object context = getInstanceMethod.invoke(null, new Object[] { protocol });
         initMethod.invoke(context, new Object[] { null, tmWrappers, null });
-        Object socketFactory = getSocketFactoryMethod.invoke(context, null);
+        Object socketFactory = getSocketFactoryMethod.invoke(context, (Object[]) null);
 
         return (SSLSocketFactory) socketFactory;
     }
