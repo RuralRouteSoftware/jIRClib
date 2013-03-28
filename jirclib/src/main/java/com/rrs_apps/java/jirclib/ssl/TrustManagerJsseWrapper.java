@@ -6,13 +6,13 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * Wraps a <code>SSLTrustManager</code> in a <code>com.sun.net.ssl.X509TrustManager</code>.
+ * Wraps a <code>SSLTrustManager</code> in a <code>javax.net.ssl.X509TrustManager</code>.
  * 
  * @author Christoph Schwering &lt;schwering@gmail.com&gt;
  * @since 1.10
  * @version 1.00
  * @see SSLTrustManager
- * @see com.sun.net.ssl.TrustManager
+ * @see javax.net.ssl.TrustManager
  */
 class TrustManagerJsseWrapper implements X509TrustManager {
     /**
@@ -37,7 +37,7 @@ class TrustManagerJsseWrapper implements X509TrustManager {
      * 
      * @param trustManager
      *            The <code>SSLTrustManager</code> that should be wrapped by a
-     *            <code>com.sun.net.ssl.X509TrustManager</code>.
+     *            <code>javax.net.ssl.X509TrustManager</code>.
      */
     public TrustManagerJsseWrapper(SSLTrustManager trustManager) {
         if (trustManager == null) {
