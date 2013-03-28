@@ -298,8 +298,8 @@ public class IRCConnection extends Thread {
 
     /**
      * Invoked by the <code>connect</code> method, this method prepares the connection. <br />
-     * It initializes the class-vars for the inputstream and the outputstream of the socket, starts the registration of
-     * at the IRC server by calling <code>register()</code> and starts the receiving of lines from the server by
+     * It initializes the class-vars for the inputstream and the outputstream of the socket, starts the registration on
+     * the IRC server by calling <code>sendPassAndNick()</code> and starts the receiving of lines from the server by
      * starting the thread with the <code>start</code> method.<br />
      * <br />
      * This method must be protected, because it is used by extending classes, which override the <code>connect</code>
@@ -328,8 +328,8 @@ public class IRCConnection extends Thread {
 
     /**
      * Sends the password (if set) and nickname to the server. Registration (<code>USER</code> command) occurs in event
-     * handling elsewhere. The action synchronizes so that no important messages (like the first PING) come in before
-     * this registration is finished.<br />
+     * handling elsewhere. The action synchronizes so that no important messages (like the first <code>PING</code>) come
+     * in before this registration is finished.
      */
     private void sendPassAndNick() {
         if (pass != null)
@@ -581,7 +581,7 @@ public class IRCConnection extends Thread {
     /**
      * Sends the <code>USER</code> command. The command's format is:<br />
      * <code>
-     * &lt;username&gt; &lt;localhost&gt; &lt;irchost&gt; &lt;realname&gt;
+     * &lt;username&gt; &lt;local address&gt; &lt;IRC server address&gt; &lt;real name&gt;
      * </code>
      */
     private void register() {
@@ -591,7 +591,7 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Increments the alternative nick counter and sends a new NICK command.
+     * Increments the alternative nick counter and sends a new <code>NICK</code> command.
      */
     private void attemptAlternateNick() {
         doNick(nick + ++altNickAttempts);
