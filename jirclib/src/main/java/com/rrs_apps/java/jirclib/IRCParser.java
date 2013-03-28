@@ -1,16 +1,3 @@
-/*
- * IRClib -- A Java Internet Relay Chat library -- class IRCParser
- * Copyright (C) 2002 - 2006 Christoph Schwering <schwering@gmail.com>
- * 
- * This library and the accompanying materials are made available under the
- * terms of the
- * 	- GNU Lesser General Public License,
- * 	- Apache License, Version 2.0 and
- * 	- Eclipse Public License v1.0.
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY.
- */
-
 package com.rrs_apps.java.jirclib;
 
 /**

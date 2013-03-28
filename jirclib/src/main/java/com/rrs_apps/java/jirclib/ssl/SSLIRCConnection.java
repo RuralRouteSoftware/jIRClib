@@ -1,21 +1,9 @@
-/*
- * IRClib -- A Java Internet Relay Chat library -- class SSLIRCConnection
- * Copyright (C) 2002 - 2006 Christoph Schwering <schwering@gmail.com>
- * 
- * This library and the accompanying materials are made available under the
- * terms of the
- * 	- GNU Lesser General Public License,
- * 	- Apache License, Version 2.0 and
- * 	- Eclipse Public License v1.0.
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY.
- */
-
 package com.rrs_apps.java.jirclib.ssl;
 
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.Vector;
+
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
@@ -86,8 +74,8 @@ import com.rrs_apps.java.jirclib.IRCConnection;
  * this example.
  * <p>
  * <code>SSLTrustManager</code>s can be added and removed until the <code>connect</code> method is invoked. If no
- * <code>SSLTrustManager</code>s are set until then, an {@link com.rrs_apps.java.jirclib.ssl.SSLDefaultTrustManager} is set
- * automatically. It accepts all X509 certificates.
+ * <code>SSLTrustManager</code>s are set until then, an {@link com.rrs_apps.java.jirclib.ssl.SSLDefaultTrustManager} is
+ * set automatically. It accepts all X509 certificates.
  * 
  * @author Christoph Schwering &lt;schwering@gmail.com&gt;
  * @since 1.10

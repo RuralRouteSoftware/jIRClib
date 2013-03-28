@@ -1,16 +1,3 @@
-/*
- * IRClib -- A Java Internet Relay Chat library -- class IRCConnection
- * Copyright (C) 2002 - 2006 Christoph Schwering <schwering@gmail.com>
- * 
- * This library and the accompanying materials are made available under the
- * terms of the
- * 	- GNU Lesser General Public License,
- * 	- Apache License, Version 2.0 and
- * 	- Eclipse Public License v1.0.
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY.
- */
-
 package com.rrs_apps.java.jirclib;
 
 import java.io.BufferedReader;
@@ -20,6 +7,8 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
+
+import com.rrs_apps.java.jirclib.ssl.SSLIRCConnection;
 
 /**
  * Creates a new connection to an IRC server. It's the main class of the IRClib, the point everything starts.
@@ -662,7 +651,8 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Adds a new {@link com.rrs_apps.java.jirclib.IRCEventListener} which listens for actions coming from the IRC server.
+     * Adds a new {@link com.rrs_apps.java.jirclib.IRCEventListener} which listens for actions coming from the IRC
+     * server.
      * 
      * @param l
      *            An instance of the {@link com.rrs_apps.java.jirclib.IRCEventListener} interface.
@@ -682,7 +672,8 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Removes the first occurence of the given {@link com.rrs_apps.java.jirclib.IRCEventListener} from the listener-vector.
+     * Removes the first occurence of the given {@link com.rrs_apps.java.jirclib.IRCEventListener} from the
+     * listener-vector.
      * 
      * @param l
      *            An instance of the {@link com.rrs_apps.java.jirclib.IRCEventListener} interface.
