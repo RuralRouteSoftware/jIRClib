@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.rrs-apps.java.jirclib</groupId>
 		<artifactId>jirclib-parent</artifactId>
-		<version>1.0</version>
+		<version>1.1-SNAPSHOT</version>
 	</parent>
 
 	<name>jIRClib</name>
