@@ -323,6 +323,7 @@ public class IRCConnection extends Thread {
         out = new PrintWriter(new OutputStreamWriter(s.getOutputStream(), encoding));
         start();
         sendPassAndNick();
+        register();
     }
 
     // ------------------------------
@@ -442,14 +443,9 @@ public class IRCConnection extends Thread {
                 for (int i = listeners.length - 1; i >= 0; i--)
                     listeners[i].onPing(ping);
 
-            if (level == 1) { // not registered
-                level = 2; // first PING received -> connection
-
+            if (level == 1) { // Not yet registered
                 // Register the connection
                 register();
-
-                for (int i = listeners.length - 1; i >= 0; i--)
-                    listeners[i].onRegistered();
             }
 
         }
@@ -510,10 +506,8 @@ public class IRCConnection extends Thread {
                     level = 3;
             }
 
-            if (level == 1) { // not registered
-                level = 2; // if first PING wasn't received, we're
-                for (int i = listeners.length - 1; i >= 0; i--)
-                    listeners[i].onRegistered(); // connected now for sure
+            if (level == 1) { // if first PING wasn't received, we're connected now for sure
+                register();
             }
 
             String middle = p.getMiddle();
@@ -586,7 +580,13 @@ public class IRCConnection extends Thread {
      * </code>
      */
     private void register() {
+        level = 2;
+
         send("USER " + username + " " + socket.getLocalAddress() + " " + host + " :" + realname);
+
+        // Notify listeners
+        for (int i = listeners.length - 1; i >= 0; i--)
+            listeners[i].onRegistered();
     }
 
     // ------------------------------
