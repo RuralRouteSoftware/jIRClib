@@ -101,7 +101,7 @@ public class IRCModeParser {
     // ------------------------------
 
     /**
-     * Parses the modes into two <code>char</code>-arrays and one <code>String</code>-array. <br />
+     * Parses the modes into two <code>char</code>-arrays and one <code>String</code>-array. <br>
      * The first one contains the operator of the mode (<code>+</code> or </code>-</code>) and the second one the mode (
      * <code>w</code>, <code>i</code>, <code>s</code>, <code>o</code> or any other mode). The <code>String[]</code>
      * contains the nicknames.

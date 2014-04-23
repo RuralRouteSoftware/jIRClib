@@ -40,7 +40,7 @@ import java.util.EventListener;
 public interface IRCEventListener extends EventListener, IRCConstants {
 
     /**
-     * Fired when the own connection is successfully established. This is the case when the first PING? is received. <br />
+     * Fired when the own connection is successfully established. This is the case when the first PING? is received. <br>
      * This happens between the connection is opened with a socket and the connection is registered: The client sends
      * his information to the server (nickname, username). The server says hello to you by sending you some
      * <code>NOTICE</code>s. And if your nickname is invalid or in use or anything else is wrong with your nickname, it

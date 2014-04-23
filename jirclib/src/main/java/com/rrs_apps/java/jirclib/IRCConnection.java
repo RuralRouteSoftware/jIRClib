@@ -15,7 +15,7 @@ import com.rrs_apps.java.jirclib.ssl.SSLIRCConnection;
  * <p>
  * The following sample code tries to establish an IRC connection to an IRC server:
  * <p>
- * <hr />
+ * <hr>
  * 
  * <pre>
  * /* 
@@ -47,7 +47,7 @@ import com.rrs_apps.java.jirclib.ssl.SSLIRCConnection;
  * }
  * </pre>
  * 
- * <hr />
+ * <hr>
  * <p>
  * The serverpassword isn't needed in most cases. You can give <code>null</code> or <code>""</code> instead as done in
  * this example.
@@ -114,13 +114,13 @@ public class IRCConnection extends Thread {
     private int timeout = 1000 * 60 * 15;
 
     /**
-     * This <code>boolean</code> stands for enabled (<code>true</code>) or disabled (<code>false</code>) ColorCodes.<br />
+     * This <code>boolean</code> stands for enabled (<code>true</code>) or disabled (<code>false</code>) ColorCodes.<br>
      * Default is enabled (<code>false</code>).
      */
     private boolean colorsEnabled = false;
 
     /**
-     * This <code>boolean</code> stands for enabled or disabled automatic PING? PONG! support. <br />
+     * This <code>boolean</code> stands for enabled or disabled automatic PING? PONG! support. <br>
      * It means, that if the server asks with PING for the ping, the PONG is automatically sent. Default is automatic
      * PONG enabled (<code>true</code>).
      */
@@ -154,12 +154,12 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Creates a new IRC connection. <br />
+     * Creates a new IRC connection. <br>
      * The difference to the other constructor is, that it transmits the ports in an <code>int[]</code>. Thus, also
-     * ports like 1024, 2048, 6667 and 6669 can be selected.<br />
-     * <br />
+     * ports like 1024, 2048, 6667 and 6669 can be selected.<br>
+     * <br>
      * The constructor prepares a new IRC connection which can be really started by invoking the <code>connect</code>
-     * method. Before invoking it, you should set the <code>IRCEventListener</code> and other settings.<br />
+     * method. Before invoking it, you should set the <code>IRCEventListener</code> and other settings.<br>
      * Note that you do not need to set a password to connect to the large public IRC networks like QuakeNet, EFNet etc.
      * To use no password in your IRC connection, use <code>""</code> or <code>null</code> for the password argument in
      * the constructor.
@@ -198,12 +198,12 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Creates a new IRC connection. <br />
+     * Creates a new IRC connection. <br>
      * The difference to the other constructor is, that it transmits the ports as two <code>int</code>s. Thus, only a
-     * portrange from port <code>x</code> to port <code>y</code> like from port 6667 to 6669 can be selected.<br />
-     * <br />
+     * portrange from port <code>x</code> to port <code>y</code> like from port 6667 to 6669 can be selected.<br>
+     * <br>
      * The constructor prepares a new IRC connection which can be really started by invoking the <code>connect</code>
-     * method. Before invoking it, you should set the <code>IRCEventListener</code> and other settings.<br />
+     * method. Before invoking it, you should set the <code>IRCEventListener</code> and other settings.<br>
      * Note that you do not need to set a password to connect to the large public IRC networks like QuakeNet, EFNet etc.
      * To use no password in your IRC connection, use <code>""</code> or <code>null</code> for the password argument in
      * the constructor.
@@ -238,7 +238,7 @@ public class IRCConnection extends Thread {
 
     /**
      * Converts a portrange which starts with a given <code>int</code> and ends with a given <code>int</code> into an
-     * array which contains all <code>int</code>s from the beginning to the ending (including beginning and ending).<br />
+     * array which contains all <code>int</code>s from the beginning to the ending (including beginning and ending).<br>
      * If <code>portMin > portMax</code>, the portrange is turned arount automatically.
      * 
      * @param portMin
@@ -261,9 +261,9 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Establish a connection to the server. <br />
-     * This method must be invoked to start a connection; the constructor doesn't do that!<br />
-     * It tries all set ports until one is open. If all ports fail it throws an <code>IOException</code>.<br />
+     * Establish a connection to the server. <br>
+     * This method must be invoked to start a connection; the constructor doesn't do that!<br>
+     * It tries all set ports until one is open. If all ports fail it throws an <code>IOException</code>.<br>
      * You can invoke <code>connect</code> only one time.
      * 
      * @throws IOException
@@ -298,11 +298,11 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Invoked by the <code>connect</code> method, this method prepares the connection. <br />
+     * Invoked by the <code>connect</code> method, this method prepares the connection. <br>
      * It initializes the class-vars for the inputstream and the outputstream of the socket, starts the registration on
      * the IRC server by calling <code>sendPassAndNick()</code> and starts the receiving of lines from the server by
-     * starting the thread with the <code>start</code> method.<br />
-     * <br />
+     * starting the thread with the <code>start</code> method.<br>
+     * <br>
      * This method must be protected, because it is used by extending classes, which override the <code>connect</code>
      * method.
      * 
@@ -390,7 +390,7 @@ public class IRCConnection extends Thread {
 
     /**
      * Just parses a String given as the only argument with the help of the <code>IRCParser</code> class. Then it
-     * controls the command and fires events through the <code>IRCEventListener</code>.<br />
+     * controls the command and fires events through the <code>IRCEventListener</code>.<br>
      * 
      * @param line
      *            The line which is sent from the server.
@@ -580,7 +580,7 @@ public class IRCConnection extends Thread {
     }
 
     /**
-     * Sends the <code>USER</code> command. The command's format is:<br />
+     * Sends the <code>USER</code> command. The command's format is:<br>
      * <code>
      * &lt;username&gt; &lt;local address&gt; &lt;IRC server address&gt; &lt;real name&gt;
      * </code>
@@ -599,9 +599,9 @@ public class IRCConnection extends Thread {
     }
 
     /**
-     * Close down the connection brutally. <br />
+     * Close down the connection brutally. <br>
      * It does *NOT* send the proper IRC command <code>QUIT</code>. You should always use the <code>doQuit</code>
-     * methods or <code>send("QUIT")</code> instead of this method. <br />
+     * methods or <code>send("QUIT")</code> instead of this method. <br>
      * You should use this method to close down the connection only when the IRC server doesn't react to the
      * <code>QUIT</code> command.
      * 
@@ -741,7 +741,7 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Sets the connection's timeout in milliseconds. <br />
+     * Sets the connection's timeout in milliseconds. <br>
      * The default is <code>1000 * 60 15</code> millis which are 15 minutes.
      */
     public void setTimeout(int millis) {
@@ -758,7 +758,7 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Tells whether there's a connection to the IRC network or not. <br />
+     * Tells whether there's a connection to the IRC network or not. <br>
      * If <code>connect</code> wasn't called yet, it returns <code>false</code>.
      * 
      * @return The status of the connection; <code>true</code> if it's connected.
@@ -886,7 +886,7 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Returns the timeout of the socket. <br />
+     * Returns the timeout of the socket. <br>
      * If an error occurs, which is never the case, <code>-1</code> is returned.
      * 
      * @return The timeout.
@@ -1093,7 +1093,7 @@ public class IRCConnection extends Thread {
     // ------------------------------
 
     /**
-     * Sends a mode to the server. <br />
+     * Sends a mode to the server. <br>
      * The first argument is a nickname (user-mode) or a channel (channel-mode). <code>String mode</code> must contain
      * the operators (+/-), the modes (o/v/i/k/l/p/s/w) and the possibly values (nicks/banmask/limit/key).
      * 

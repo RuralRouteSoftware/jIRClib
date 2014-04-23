@@ -21,7 +21,7 @@ import com.rrs_apps.java.jirclib.IRCConnection;
  * to the code which demonstrates the use of of the {@link com.rrs_apps.java.jirclib.IRCConnection} class are printed in
  * bold font:
  * <p>
- * <hr />
+ * <hr>
  * 
  * <pre>
  * /&#42; 
@@ -68,7 +68,7 @@ import com.rrs_apps.java.jirclib.IRCConnection;
  * }
  * </pre>
  * 
- * <hr />
+ * <hr>
  * <p>
  * The serverpassword isn't needed in most cases. You can give <code>null</code> or <code>""</code> instead as done in
  * this example.
@@ -98,14 +98,14 @@ public class SSLIRCConnection extends IRCConnection {
     // ------------------------------
 
     /**
-     * Creates a new IRC connection with secure sockets (SSL). <br />
+     * Creates a new IRC connection with secure sockets (SSL). <br>
      * The difference to the other constructor is, that it transmits the ports in an <code>int[]</code>. Thus, also
-     * ports like 994, 6000 and 6697 can be selected.<br />
-     * <br />
+     * ports like 994, 6000 and 6697 can be selected.<br>
+     * <br>
      * The constructor prepares a new IRC connection with secure sockets which can be really started by invoking the
      * <code>connect</code> method. Before invoking it, you should set the <code>IRCEventListener</code>, optionally the
      * <code>SSLTrustManager</code>, if you don't want to use the <code>SSLDefaultTrustManager</code> which accepts the
-     * X509 certificate automatically, and other settings.<br />
+     * X509 certificate automatically, and other settings.<br>
      * Note that you do not need to set a password to connect to the large public IRC networks like QuakeNet, EFNet etc.
      * To use no password in your IRC connection, use <code>""</code> or <code>null</code> for the password argument in
      * the constructor.
@@ -136,14 +136,14 @@ public class SSLIRCConnection extends IRCConnection {
     // ------------------------------
 
     /**
-     * Creates a new IRC connection with secure sockets (SSL). <br />
+     * Creates a new IRC connection with secure sockets (SSL). <br>
      * The difference to the other constructor is, that it transmits the ports as two <code>int</code>s. Thus, only a
-     * portrange from port <code>x</code> to port <code>y</code> like from port 6000 to 6010 can be selected.<br />
-     * <br />
+     * portrange from port <code>x</code> to port <code>y</code> like from port 6000 to 6010 can be selected.<br>
+     * <br>
      * The constructor prepares a new IRC connection with secure sockets which can be really started by invoking the
      * <code>connect</code> method. Before invoking it, you should set the <code>IRCEventListener</code>, optionally the
      * <code>SSLTrustManager</code>, if you don't want to use the <code>SSLDefaultTrustManager</code> which accepts the
-     * X509 certificate automatically, and other settings.<br />
+     * X509 certificate automatically, and other settings.<br>
      * Note that you do not need to set a password to connect to the large public IRC networks like QuakeNet, EFNet etc.
      * To use no password in your IRC connection, use <code>""</code> or <code>null</code> for the password argument in
      * the constructor.
@@ -175,11 +175,11 @@ public class SSLIRCConnection extends IRCConnection {
     // ------------------------------
 
     /**
-     * Establish a connection to the server. <br />
-     * This method must be invoked to start a connection; the constructor doesn't do that!<br />
+     * Establish a connection to the server. <br>
+     * This method must be invoked to start a connection; the constructor doesn't do that!<br>
      * It tries all set ports until one is open. If all ports fail it throws an <code>IOException</code>. If anything
      * SSL related fails (for example conflicts with the algorithms or during the handshaking), a
-     * <code>SSLException</code> is thrown. <br />
+     * <code>SSLException</code> is thrown. <br>
      * You can invoke <code>connect</code> only one time.
      * 
      * @throws NoClassDefFoundError

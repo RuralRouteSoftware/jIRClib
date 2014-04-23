@@ -148,7 +148,7 @@ public class IRCUtil implements IRCConstants {
      *            The ending which is added as a substring though it wasn't in the <code>str</code>. This parameter is
      *            just for the <code>IRCParser</code> class which uses this method to split the <code>middle</code> part
      *            into the parameters. But as last parameter always the <code>trailing</code> is added. This is done
-     *            here because it's the fastest way to do it here. <br />
+     *            here because it's the fastest way to do it here. <br>
      *            If the <code>end</code> is <code>null</code> or <code>""</code>, nothing is appended.
      * @return An array with all substrings.
      * @see #split(String, int)
